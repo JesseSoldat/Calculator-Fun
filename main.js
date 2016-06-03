@@ -6,19 +6,37 @@ var calculate = function(e) {
 	var calcBtn = document.querySelector('#calcBtn').value;
 	var answer = document.querySelector('#answer').value;
 
-	// console.log(firstNum,secondNum, operator,calcBtn,answer);
-
 	if(isNaN(firstNum)) {
-		// document.querySelector('#firstNum').value = 'Please enter a number!';
-
+		document.querySelector('#firstNum').value = '';
 		document.querySelector('#firstNum').placeholder='Please enter a number!';
-	
 	}
 	if(isNaN(secondNum)) {
+		document.querySelector('#secondNum').value = '';
 		document.querySelector('#secondNum').placeholder='Please enter a number!';
 	}
+	if(operator == '+'){
+		var calc = firstNum + secondNum;
+		document.querySelector('#answer').textContent = calc;
+		return
+	}
+	if(operator == '-'){
+		var calc = firstNum - secondNum;
+		document.querySelector('#answer').textContent = calc;
+		return
+	}
+	if(operator == '*'){
+		var calc = firstNum * secondNum;
+		document.querySelector('#answer').textContent = calc;
+		return
+	}
+	if(operator == '/'){
+		var calc = firstNum / secondNum;
+		document.querySelector('#answer').textContent = calc;
+		return
+	}
+	else {	
+		document.querySelector('#answer').textContent = "Please enter a valid operator!";
 
-
+	}
 }
-
 calcBtn.addEventListener('click', calculate);
